@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   def new
     @user = User.new
   end
@@ -9,12 +9,12 @@ class UserController < ApplicationController
     if @user.save
       redirect_to new_user_path
     else
-      redirect_to :new
+      render :new
     end
   end
 
   private
     def user_params
-      params.require(:user).permit(:username, :email, :password)
+      params.require(:user).permit(:username, :email, :password, :password_confirmation)
     end
 end

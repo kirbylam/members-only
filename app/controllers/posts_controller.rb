@@ -1,4 +1,4 @@
-class PostController < ApplicationController
+class PostsController < ApplicationController
   def new
     @post = Post.new
   end
@@ -8,7 +8,7 @@ class PostController < ApplicationController
     if @post.save
       redirect_to new_post_path
     else
-      redirect_to :new
+      render :new
     end
   end
 
