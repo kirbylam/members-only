@@ -1,0 +1,16 @@
+<h1>Posts</h1>
+
+<% if session[:current_user_id] %>  
+  <%= link_to "New Post", new_post_path %>
+<% else %>
+  <%= link_to "Login", new_session_path %>
+  <%= link_to "Register", new_user_path %>
+<% end %>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <%= link_to post.title, post %>
+    </li>
+  <% end %>
+</ul>
