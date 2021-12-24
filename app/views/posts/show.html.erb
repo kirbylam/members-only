@@ -1,0 +1,7 @@
+<h1><%= @post.title %></h1>
+
+<% if session[:current_user_id] %>
+  <%= (User.find(@post.user_id)).username %>
+<% end %>
+
+<p><%= @post.body %></p>
